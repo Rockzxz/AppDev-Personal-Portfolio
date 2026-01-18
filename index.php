@@ -59,7 +59,7 @@ $projects = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $name; ?> - Personal Profile</title>
     <style>
-        /* INTERNAL CSS*/
+        /* INTERNAL CSS */
         :root {
             --primary: #4A90E2;
             --dark: #333333;
@@ -76,7 +76,7 @@ $projects = [
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-       
+        /* HERO SECTION */
         .hero {
             display: flex;
             align-items: center;
@@ -97,9 +97,10 @@ $projects = [
         }
 
         .hero-text { flex: 1; padding-right: 50px; z-index: 2; }
-        .hero-text h4 { color: var(--primary); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
-        .hero-text h1 { font-size: 4rem; margin-bottom: 25px; line-height: 1.1; }
-        .hero-text p { margin-bottom: 35px; max-width: 500px; font-size: 1.1rem; }
+        .hero-text h4 { color: var(--primary); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
+        .hero-text h1 { font-size: 64px; margin-bottom: 25px; line-height: 1.1; }
+        .hero-text p { margin-bottom: 35px; max-width: 500px; font-size: 18px; }
+        
         .btn {
             display: inline-block;
             background: var(--primary);
@@ -114,15 +115,15 @@ $projects = [
         .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(74, 144, 226, 0.3); }
 
         .hero-img { 
-            flex: 2; 
+            flex: 1; 
             text-align: right; 
             z-index: 1;
+            width: 100%;
         }
         .hero-img img { 
-            width: 110%; 
-            max-width: 1000px; 
+            width: 100%; 
+            max-width: 600px; 
             height: auto;
-            
         }
 
         /* ABOUT & SKILLS SECTION */
@@ -130,7 +131,7 @@ $projects = [
         .about-left { flex: 1; }
         .about-right { flex: 1; background: var(--white); padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; }
 
-        .section-title { font-size: 2.2rem; margin-bottom: 30px; position: relative; display: inline-block; }
+        .section-title { font-size: 36px; margin-bottom: 30px; position: relative; display: inline-block; }
         
         /* Contact Cards */
         .contact-grid { display: flex; gap: 20px; margin-top: 40px; }
@@ -144,19 +145,19 @@ $projects = [
             background: var(--white);
         }
         .contact-card:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: transparent; transform: translateY(-5px); }
-        .contact-card .icon { font-size: 2.5rem; display: block; margin-bottom: 15px; }
+        .contact-card .icon { font-size: 40px; display: block; margin-bottom: 15px; }
         .contact-card h4 { font-size: 20px; color: var(--dark); margin-bottom: 10px; }
-        .contact-card span { font-size: 17px; color: var(--text); word-break: break-all; }
+        .contact-card span { font-size: 17px; color: var(--text); word-break: break-word; }
 
         /* Progress Bars */
         .skill-item { margin-bottom: 25px; }
-        .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; color: var(--dark); font-size: 0.9rem; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; color: var(--dark); font-size: 14px; }
         .progress-bg { width: 100%; height: 8px; background: #edf2f7; border-radius: 4px; overflow: hidden; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #64b5f6); border-radius: 4px; width: 0; transition: width 1.5s ease-in-out; }
 
         /* HOBBIES GRID */
         .hobbies-section { padding: 100px 0; background: #f8fbfe; text-align: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
         .hobby-card {
             background: white;
             padding: 40px 30px;
@@ -167,8 +168,8 @@ $projects = [
             border-bottom: 3px solid transparent;
         }
         .hobby-card:hover { transform: translateY(-7px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-bottom-color: var(--primary); }
-        .hobby-icon { font-size: 3.5rem; margin-bottom: 25px; color: var(--primary); display: block; }
-        .hobby-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+        .hobby-icon { font-size: 56px; margin-bottom: 25px; color: var(--primary); display: block; }
+        .hobby-card h3 { font-size: 21px; margin-bottom: 15px; }
         
         /* PROJECTS SECTION */
         .projects-section { padding: 100px 0; text-align: center; }
@@ -188,21 +189,44 @@ $projects = [
         }
         .project-card:hover .project-info { transform: translateY(0); opacity: 1; }
         .project-info h3 { color: white; margin-bottom: 5px; }
-        .project-info span { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; }
 
         /* FOOTER */
-        footer { padding: 50px 0; text-align: center; font-size: 0.9rem; background: var(--dark); color: #888; margin-top: 50px; }
+        footer { padding: 50px 0; text-align: center; font-size: 14px; background: var(--dark); color: #888; margin-top: 50px; }
 
-        /* Responsive */
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        
         @media (max-width: 992px) {
             .hero { flex-direction: column-reverse; text-align: center; padding-top: 60px; }
-            .hero-text { padding-right: 0; margin-top: 50px; }
-            .hero-text h1 { font-size: 3rem; }
-            .hero-img { text-align: center; flex: auto; }
             
-            .hero-img img { max-width: 100%; max-height: 500px; } 
+            .hero-text { padding-right: 0; margin-top: 50px; width: 100%; }
+            .hero-text h1 { font-size: 48px; } 
+            
+           
+            .hero-img { 
+                width: 100%; 
+                display: flex;            
+                justify-content: center;  
+                margin-bottom: 20px; 
+            }
+            .hero-img img { 
+                max-width: 80%; 
+            } 
+            /* -------------------------------------- */
+            
             .about-section { flex-direction: column; gap: 40px; }
+            .contact-grid { flex-wrap: wrap; justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 50px 0; }
+            .hero-text h1 { font-size: 36px; } 
+            .hero-text p { font-size: 16px; padding: 0 10px; } 
+            
+            .about-section, .hobbies-section, .projects-section { padding: 50px 0; }
+            
             .contact-grid { flex-direction: column; }
+            .section-title { font-size: 28px; }
+            .grid-3 { grid-template-columns: 1fr; } 
         }
     </style>
 </head>
@@ -223,7 +247,7 @@ $projects = [
     <section class="container about-section" id="about">
         <div class="about-left">
             <h2 class="section-title">About Myself</h2>
-            <p style="margin-bottom: 30px; font-size: 1.05rem;">
+            <p style="margin-bottom: 30px; font-size: 17px;">
                 I am a 21-year-old third-year BS Information Technology student from Cugman, Cagayan de Oro City, currently studying at the University of 
                 Science and Technology of Southern Philippines (USTP), where I continue to develop my skills and passion for technology.
             </p>
@@ -265,7 +289,7 @@ $projects = [
                 <div class="hobby-card">
                     <span class="hobby-icon"><?php echo $hobby['icon']; ?></span>
                     <h3><?php echo $hobby['title']; ?></h3>
-                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--text);"><?php echo $hobby['desc']; ?></p>
+                    <p style="margin-top: 15px; font-size: 15px; color: var(--text);"><?php echo $hobby['desc']; ?></p>
                 </div>
                 <?php endforeach; ?>
             </div>
