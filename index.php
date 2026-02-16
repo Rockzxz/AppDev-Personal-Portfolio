@@ -1,18 +1,23 @@
 <?php
 
 $name = "ROCKY ARAÑEZ";
+$section = "3R11"; 
+$year_level = "3rd Year";
+$course = "BS Information Technology";
+$location = "Cugman, CDOC";
+
 $hero_text = "I’m passionate about design and driven by a constant desire to learn new things every day, pushing myself to improve and explore creative possibilities.";
+$profile_image = "profile1.png"; 
 
-$profile_image = "profile.png"; 
 
-// Contact Details
-$contacts = [
-    ["icon" => "📅", "label" => "Age", "value" => "21 Years Old"],
-    ["icon" => "🎓", "label" => "Course", "value" => "BS Information Technology"],
-    ["icon" => "📍", "label" => "Location", "value" => "Cugman, CDOC"]
+$quick_info = [
+    ["icon" => "🎓", "label" => "Course", "value" => $course],
+    ["icon" => "🏫", "label" => "Year & Section", "value" => "$year_level - $section"],
+    ["icon" => "📍", "label" => "Location", "value" => $location],
+    ["icon" => "🎂", "label" => "Age", "value" => "21 Years Old"]
 ];
 
-// Tools & Proficiency
+
 $skills = [
     "Adobe Photoshop" => 70,
     "Figma" => 50,
@@ -21,26 +26,17 @@ $skills = [
     "Canva" => 70
 ];
 
-// Hobbies
+
 $hobbies = [
-    ["title" => "Bodybuilding", "desc" => "Aside from improving my skills and knowledge, I also enjoy improving my body through 
-    bodybuilding, as it helps me build discipline, confidence, and a healthy lifestyle.", "icon" => "💪"],
-
-    ["title" => "Gaming", "desc" => "I love playing video games, especially AAA and story-driven games, 
-    because they offer immersive experiences, strong narratives, and inspiring visuals.", "icon" => "🎮"],
-
-    ["title" => "Graphic Design", "desc" => "Since I was in Elementary, I have loved designing graphics because 
-    it allows me to express creativity and turn ideas into visually appealing designs", "icon" => "🖌️"],
-
-    ["title" => "UI/UX Design", "desc" => "Aside from graphic design, I also enjoy designing user 
-    interfaces because I like creating clean, user-friendly, and meaningful digital experiences.", "icon" => "📐"],
-
-    ["title" => "Coding", "desc" => "I also enjoy coding because I love crafting solutions and solving problems through logical thinking and creativity.", "icon" => "💻"],
-
-    ["title" => "Movies", "desc" => "I love watching movies because they inspire me through storytelling, visuals, and different perspectives.", "icon" => "🎬"]
+    ["title" => "Bodybuilding", "desc" => "Building discipline, confidence, and a healthy lifestyle through fitness.", "icon" => "💪"],
+    ["title" => "Gaming", "desc" => "Exploring immersive narratives and inspiring visuals in AAA games.", "icon" => "🎮"],
+    ["title" => "Graphic Design", "desc" => "Expressing creativity and turning ideas into visual reality.", "icon" => "🖌️"],
+    ["title" => "UI/UX Design", "desc" => "Creating clean, user-friendly, and meaningful digital experiences.", "icon" => "📐"],
+    ["title" => "Coding", "desc" => "Crafting solutions through logical thinking and creativity.", "icon" => "💻"],
+    ["title" => "Movies", "desc" => "Finding inspiration in storytelling and cinematography.", "icon" => "🎬"]
 ];
 
-// Projects
+
 $projects = [
     ["title" => "Mobile Legends Tournament", "img" => "1.png"],
     ["title" => "Landing Page", "img" => "2.png"],
@@ -57,222 +53,184 @@ $projects = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $name; ?> - Personal Profile</title>
+    <title><?php echo $name; ?> - Portfolio</title>
     <style>
-        /* INTERNAL CSS */
+        
         :root {
             --primary: #4A90E2;
+            --primary-dark: #357ABD;
             --dark: #333333;
-            --light: #f9f9f9;
             --text: #666666;
+            --light-bg: #f8fbfe;
             --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-
         body { background-color: var(--white); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        h1, h2, h3 { color: var(--dark); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* HERO SECTION */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 80px 0 100px 0;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -10%;
-            width: 50%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(74, 144, 226, 0.05) 0%, rgba(255,255,255,0) 70%);
-            z-index: -1;
+        h1, h2, h3, h4 { color: var(--dark); font-weight: 700; }
+        h1 { line-height: 1.2; }
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 50px; position: relative; }
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 4px; background: var(--primary);
+            margin: 15px auto 0; border-radius: 2px;
         }
 
-        .hero-text { flex: 1; padding-right: 50px; z-index: 2; }
-        .hero-text h4 { color: var(--primary); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-        .hero-text h1 { font-size: 64px; margin-bottom: 25px; line-height: 1.1; }
-        .hero-text p { margin-bottom: 35px; max-width: 500px; font-size: 18px; }
+        
+        header { padding: 20px 0; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+
+        
+        .hero { 
+            display: flex; align-items: center; justify-content: space-between; 
+            min-height: 80vh; padding: 60px 0; 
+        }
+        .hero-text { flex: 1; padding-right: 50px; }
+        .hero-label { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 15px; display: block; }
+        .hero-text h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--dark); }
+        .hero-text p { font-size: 1.1rem; margin-bottom: 30px; max-width: 500px; color: var(--text); }
         
         .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block; background: var(--primary); color: white; padding: 12px 30px;
+            text-decoration: none; border-radius: 6px; font-weight: 600; transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(74, 144, 226, 0.3); }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        .hero-img { 
-            flex: 1; 
-            text-align: right; 
-            z-index: 1;
-            width: 100%;
-        }
+        .hero-img { flex: 1; display: flex; justify-content: flex-end; }
         .hero-img img { 
-            width: 100%; 
-            max-width: 600px; 
-            height: auto;
+            width: 100%; max-width: 450px; border-radius: 20px; 
+            
+            box-shadow: 20px 20px 0px rgba(74, 144, 226, 0.1); 
         }
 
-        /* ABOUT & SKILLS SECTION */
-        .about-section { padding: 100px 0; display: flex; gap: 60px; align-items: flex-start; }
-        .about-left { flex: 1; }
-        .about-right { flex: 1; background: var(--white); padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; }
-
-        .section-title { font-size: 36px; margin-bottom: 30px; position: relative; display: inline-block; }
         
-        /* Contact Cards */
-        .contact-grid { display: flex; gap: 20px; margin-top: 40px; }
-        .contact-card {
-            flex: 1;
-            padding: 25px 20px;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            text-align: center;
-            transition: 0.3s;
-            background: var(--white);
-        }
-        .contact-card:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: transparent; transform: translateY(-5px); }
-        .contact-card .icon { font-size: 40px; display: block; margin-bottom: 15px; }
-        .contact-card h4 { font-size: 20px; color: var(--dark); margin-bottom: 10px; }
-        .contact-card span { font-size: 17px; color: var(--text); word-break: break-word; }
+        .info-bar { background: var(--light-bg); padding: 40px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .info-item { text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: var(--shadow); transition: 0.3s; }
+        .info-item:hover { transform: translateY(-5px); }
+        .info-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .info-label { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
+        .info-value { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
 
-        /* Progress Bars */
+        
+        .skills-section { padding: 80px 0; }
+        .skill-container { max-width: 800px; margin: 0 auto; }
         .skill-item { margin-bottom: 25px; }
-        .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; color: var(--dark); font-size: 14px; }
-        .progress-bg { width: 100%; height: 8px; background: #edf2f7; border-radius: 4px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #64b5f6); border-radius: 4px; width: 0; transition: width 1.5s ease-in-out; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: var(--dark); }
+        .progress-track { width: 100%; height: 10px; background: #eee; border-radius: 5px; overflow: hidden; }
+        .progress-bar { height: 100%; background: var(--primary); border-radius: 5px; }
 
-        /* HOBBIES GRID */
-        .hobbies-section { padding: 100px 0; background: #f8fbfe; text-align: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
-        .hobby-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            transition: 0.3s;
-            text-align: left;
-            border-bottom: 3px solid transparent;
-        }
-        .hobby-card:hover { transform: translateY(-7px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-bottom-color: var(--primary); }
-        .hobby-icon { font-size: 56px; margin-bottom: 25px; color: var(--primary); display: block; }
-        .hobby-card h3 { font-size: 21px; margin-bottom: 15px; }
         
-        /* PROJECTS SECTION */
-        .projects-section { padding: 100px 0; text-align: center; }
-        .project-card { position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .project-card img { width: 100%; height: 350px; object-fit: cover; transition: 0.5s; }
-        .project-card:hover img { transform: scale(1.1); }
-        .project-info {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent);
-            color: white;
-            padding: 30px;
-            text-align: left;
-            transform: translateY(10px);
-            transition: 0.3s;
-            opacity: 0.9;
+        .hobbies-section { padding: 80px 0; background: var(--light-bg); }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .hobby-card { 
+            background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow); 
+            text-align: center; transition: 0.3s; border: 1px solid transparent;
         }
-        .project-card:hover .project-info { transform: translateY(0); opacity: 1; }
-        .project-info h3 { color: white; margin-bottom: 5px; }
+        .hobby-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .hobby-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        .hobby-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+        .hobby-card p { font-size: 0.95rem; }
 
-        /* FOOTER */
-        footer { padding: 50px 0; text-align: center; font-size: 14px; background: var(--dark); color: #888; margin-top: 50px; }
+        
+        .projects-section { padding: 80px 0; }
+        .project-card { 
+            position: relative; border-radius: 15px; overflow: hidden; 
+            box-shadow: var(--shadow); aspect-ratio: 4/3; 
+        }
+        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .project-card:hover img { transform: scale(1.1); }
+        .project-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white; transform: translateY(100%); transition: 0.3s;
+        }
+        .project-card:hover .project-overlay { transform: translateY(0); }
 
-        /* --- RESPONSIVE MEDIA QUERIES --- */
+        
+        footer { background: var(--dark); color: #888; padding: 40px 0; text-align: center; font-size: 0.9rem; }
+
+        
+        
         
         @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 60px; }
-            
-            .hero-text { padding-right: 0; margin-top: 50px; width: 100%; }
-            .hero-text h1 { font-size: 48px; } 
-            
-           
-            .hero-img { 
-                width: 100%; 
-                display: flex;            
-                justify-content: center;  
-                margin-bottom: 20px; 
-            }
-            .hero-img img { 
-                max-width: 80%; 
-            } 
-            /* -------------------------------------- */
-            
-            .about-section { flex-direction: column; gap: 40px; }
-            .contact-grid { flex-wrap: wrap; justify-content: center; }
+            .hero { flex-direction: column-reverse; text-align: center; justify-content: center; padding-top: 40px; }
+            .hero-text { padding-right: 0; margin-top: 40px; }
+            .hero-img { justify-content: center; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
         }
 
+        /* Mobile (Max 768px) */
         @media (max-width: 768px) {
-            .hero { padding: 50px 0; }
-            .hero-text h1 { font-size: 36px; } 
-            .hero-text p { font-size: 16px; padding: 0 10px; } 
+            .section-title { font-size: 2rem; }
             
-            .about-section, .hobbies-section, .projects-section { padding: 50px 0; }
+           
+            .logo { font-size: 1.2rem; }
+
             
-            .contact-grid { flex-direction: column; }
-            .section-title { font-size: 28px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-img img { max-width: 80%; box-shadow: none; } 
+            
+            
             .grid-3 { grid-template-columns: 1fr; } 
+            .info-grid { grid-template-columns: 1fr; } 
+            
+            .project-card .project-overlay { transform: translateY(0); } 
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <div class="container nav-content">
+            <div class="logo">MyPortfolio</div>
+            </div>
+    </header>
+
     <section class="hero container">
         <div class="hero-text">
-            <h4>Hello, I am</h4>
+            <span class="hero-label">Hello, I am</span>
             <h1><?php echo $name; ?></h1>
             <p><?php echo $hero_text; ?></p>
-            <a href="#contact" class="btn">About Me</a>
+            <a href="#projects" class="btn">View My Work</a>
         </div>
         <div class="hero-img">
-            <img src="<?php echo $profile_image; ?>" alt="Profile Picture">
+            <img src="<?php echo $profile_image; ?>" alt="Profile of <?php echo $name; ?>">
         </div>
     </section>
 
-    <section class="container about-section" id="about">
-        <div class="about-left">
-            <h2 class="section-title">About Myself</h2>
-            <p style="margin-bottom: 30px; font-size: 17px;">
-                I am a 21-year-old third-year BS Information Technology student from Cugman, Cagayan de Oro City, currently studying at the University of 
-                Science and Technology of Southern Philippines (USTP), where I continue to develop my skills and passion for technology.
-            </p>
-
-            <div class="contact-grid" id="contact">
-                <?php foreach($contacts as $contact): ?>
-                <div class="contact-card">
-                    <span class="icon"><?php echo $contact['icon']; ?></span>
-                    <h4><?php echo $contact['label']; ?></h4>
-                    <span><?php echo $contact['value']; ?></span>
+    <section class="info-bar">
+        <div class="container">
+            <div class="info-grid">
+                <?php foreach($quick_info as $info): ?>
+                <div class="info-item">
+                    <span class="info-icon"><?php echo $info['icon']; ?></span>
+                    <span class="info-label"><?php echo $info['label']; ?></span>
+                    <div class="info-value"><?php echo $info['value']; ?></div>
                 </div>
                 <?php endforeach; ?>
             </div>
         </div>
+    </section>
 
-        <div class="about-right">
-            <h3 style="margin-bottom: 30px;">Tools & Proficiency</h3>
+    <section class="skills-section container">
+        <h2 class="section-title">My Expertise</h2>
+        <div class="skill-container">
             <?php foreach($skills as $tool => $percent): ?>
             <div class="skill-item">
-                <div class="skill-info">
+                <div class="skill-header">
                     <span><?php echo $tool; ?></span>
                     <span><?php echo $percent; ?>%</span>
                 </div>
-                <div class="progress-bg">
-                    <div class="progress-fill" style="width: <?php echo $percent; ?>%;"></div>
+                <div class="progress-track">
+                    <div class="progress-bar" style="width: <?php echo $percent; ?>%;"></div>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -281,30 +239,26 @@ $projects = [
 
     <section class="hobbies-section">
         <div class="container">
-            <h2 class="section-title">My Hobbies & Interests</h2>
-            <p>Things that fuel my creativity and discipline.</p>
-            
+            <h2 class="section-title">Hobbies & Interests</h2>
             <div class="grid-3">
                 <?php foreach($hobbies as $hobby): ?>
                 <div class="hobby-card">
                     <span class="hobby-icon"><?php echo $hobby['icon']; ?></span>
                     <h3><?php echo $hobby['title']; ?></h3>
-                    <p style="margin-top: 15px; font-size: 15px; color: var(--text);"><?php echo $hobby['desc']; ?></p>
+                    <p><?php echo $hobby['desc']; ?></p>
                 </div>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="projects-section container">
-        <h2 class="section-title">My Projects</h2>
-        <p style="margin-bottom: 50px;">A selection of my recent work in development and design.</p>
-
+    <section class="projects-section container" id="projects">
+        <h2 class="section-title">Recent Projects</h2>
         <div class="grid-3">
             <?php foreach($projects as $proj): ?>
             <div class="project-card">
                 <img src="<?php echo $proj['img']; ?>" alt="<?php echo $proj['title']; ?>">
-                <div class="project-info">
+                <div class="project-overlay">
                     <h3><?php echo $proj['title']; ?></h3>
                 </div>
             </div>

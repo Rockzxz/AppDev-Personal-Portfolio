@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCKY ARAÑEZ - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            
+            --bg-dark: #0f0f11;       
+            --bg-card: #1b1b1f;       
+            --primary: #6C5DD3;       
+            --primary-hover: #5a4cb5;
+            --accent: #a0f44b;        
+            
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            
+            --radius: 24px;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-white); 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+        
+        header { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-white); }
+        .logo span { color: var(--primary); }
+
+        
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; border-radius: 12px;
+            font-weight: 600; text-decoration: none; transition: var(--transition);
+            border: none; cursor: pointer; font-size: 1rem;
+        }
+        .btn-primary { 
+            background-color: var(--primary); 
+            color: white; 
+            box-shadow: 0 4px 15px rgba(108, 93, 211, 0.4);
+        }
+        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
+        
+        .btn-outline { 
+            border: 1px solid rgba(255,255,255,0.15); 
+            color: white; 
+            background: transparent; 
+        }
+        .btn-outline:hover { border-color: var(--primary); background: rgba(255,255,255,0.05); }
+
+        
+        .hero { 
+            padding: 80px 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 60px; 
+            min-height: 80vh;
+        }
+        
+        .hero-content { flex: 1; z-index: 2; }
+        
+        .hero-label { 
+            color: var(--text-gray); 
+            font-size: 1.1rem; 
+            margin-bottom: 5px; 
+            display: block; 
+            font-weight: 400;
+        }
+        
+        h1 { 
+            font-size: 4rem; 
+            line-height: 1.1; 
+            margin-bottom: 25px; 
+            font-weight: 700; 
+        }
+        h1 span { color: var(--primary); display: block; }
+        
+        .hero-role { 
+            color: var(--text-gray); 
+            font-size: 1.2rem; 
+            margin-bottom: 30px; 
+            padding-left: 20px; 
+            border-left: 3px solid white; 
+            display: inline-block;
+            line-height: 1.2;
+        }
+        
+        .hero-desc { 
+            color: var(--text-gray); 
+            margin-bottom: 45px; 
+            max-width: 550px; 
+            font-weight: 300; 
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        
+        .hero-img-box { 
+            position: relative; 
+            flex: 1; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-frame {
+            position: absolute;
+            width: 420px;
+            height: 500px;
+            border: 2px solid var(--primary);
+            border-radius: 60px 60px 60px 60px;
+            z-index: 1;
+            right: 0.25;
+        }
+        
+        .hero-glow {
+            position: absolute;
+            top: 20px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(88, 101, 242, 0.6) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            filter: blur(40px);
+        }
+
+        .hero-img { 
+            width: auto; 
+            height: 550px;
+            object-fit: cover; 
+            position: relative; 
+            z-index: 2;
+            margin-bottom: -50px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+        }
+
+        
+        .section-header { text-align: center; margin-bottom: 60px; margin-top: 100px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .highlight-bar { width: 60px; height: 4px; background: var(--primary); margin: 20px auto 0; border-radius: 2px; }
+
+        
+        .stats-wrapper { margin-top: 80px; }
+        
+        .stats-grid { 
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; 
+            background: #151518; padding: 50px; border-radius: 30px;
+            border: 1px solid #2a2a2e;
+        }
+        .stat-card { text-align: center; }
+        .stat-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; background: rgba(108, 93, 211, 0.1); width: 70px; height: 70px; line-height: 70px; border-radius: 50%; display: inline-block; }
+        .stat-val { font-size: 1.4rem; font-weight: 700; margin-bottom: 5px; }
+        .stat-label { color: var(--text-gray); font-size: 0.9rem; }
+
+        
+        .contact-wrapper { margin-top: 30px; }
+        
+        .contact-container {
+           
+            display: flex;
+            justify-content: center; 
+            align-items: flex-start;
+            flex-wrap: wrap; 
+            gap: 50px; 
+            
+           
+            background: #151518; 
+            padding: 50px; 
+            border-radius: 30px;
+            border: 1px solid #2a2a2e;
+        }
+
+        .contact-item { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
+            gap: 15px; 
+        }
+        
+        .contact-icon { 
+            width: 60px; height: 60px; 
+            background: rgba(108, 93, 211, 0.1); 
+            color: var(--primary); 
+            border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 1.5rem; 
+            flex-shrink: 0; 
+        }
+        
+        .contact-info h5 { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 5px; font-weight: 400; }
+        .contact-info p { font-size: 1.1rem; font-weight: 600; color: var(--text-white); margin: 0; }
+        .contact-info a { color: var(--text-white); text-decoration: none; transition: 0.3s; }
+        .contact-info a:hover { color: var(--primary); }
+
+        /* EDUCATION TIMELINE */
+        .edu-section { padding: 50px 0; }
+        .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .edu-column h3 { margin-bottom: 30px; font-size: 1.8rem; display: flex; align-items: center; gap: 15px; }
+        .edu-column h3 i { color: var(--primary); }
+        
+        .timeline-card {
+            background: var(--bg-card); padding: 30px; border-radius: 20px;
+            margin-bottom: 25px; border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        .timeline-card:hover { transform: translateX(10px); background: #222226; }
+        .timeline-date { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-title { font-size: 1.2rem; margin-bottom: 8px; font-weight: 600; }
+        .timeline-place { font-size: 0.95rem; color: var(--text-gray); }
+
+        /* SKILLS */
+        .skill-group h4 { color: var(--text-gray); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .skill-item { margin-bottom: 25px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 1rem; font-weight: 500; }
+        .progress-bg { height: 10px; background: #2a2a2e; border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #8e7ffb); border-radius: 5px; }
+
+        /* HOBBIES */
+        .hobbies-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .hobby-card {
+            background: var(--bg-card); padding: 40px 30px; border-radius: 24px;
+            text-align: center; transition: var(--transition); border: 1px solid transparent;
+        }
+        .hobby-card:hover { border-color: var(--primary); background: #202025; transform: translateY(-10px); }
+        .hobby-icon { font-size: 3rem; color: var(--primary); margin-bottom: 25px; }
+        .hobby-title { font-size: 1.3rem; margin-bottom: 15px; }
+        .hobby-desc { color: var(--text-gray); font-size: 0.95rem; font-weight: 300; }
+
+        /* PROJECTS LIST */
+        .project-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .project-card {
+            display: flex; align-items: center; 
+            background: var(--bg-card); padding: 30px; border-radius: 24px;
+            border: 1px solid #2a2a2e; transition: var(--transition);
+        }
+        .project-card:hover { border-color: var(--primary); background: #222226; transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        
+        .project-info { display: flex; align-items: center; gap: 30px; width: 100%; }
+        
+        .project-thumb { width: 180px; height: 180px; border-radius: 20px; object-fit: cover; flex-shrink: 0; }
+        
+        .project-text h4 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; }
+        .project-cat { color: var(--accent); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
+
+        /* FOOTER */
+        footer { border-top: 1px solid #2a2a2e; padding: 50px 0; margin-top: 100px; text-align: center; color: var(--text-gray); }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 40px; }
+            .hero-img-box { margin-top: 50px; width: 100%; }
+            .hero-frame { width: 100%; max-width: 400px; right: auto; }
+            .hero-role { padding-left: 0; border-left: none; border-bottom: 3px solid white; display: inline-block; padding-bottom: 5px; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .edu-grid { grid-template-columns: 1fr; }
+            .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .project-list { grid-template-columns: 1fr; }
+            .contact-container { flex-direction: column; align-items: center; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .hero-img { height: 400px; }
+            .hero-frame { height: 350px; bottom: 0; top: auto; }
+            .hobbies-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            
+            .project-card { flex-direction: column; text-align: center; gap: 20px; padding: 30px; }
+            .project-info { flex-direction: column; gap: 20px; }
+            .project-thumb { width: 100%; max-width: 300px; height: auto; aspect-ratio: 1/1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">ROCKY<span>ARAÑEZ</span></div>
+            <a href="mailto:rockyaranez@gmail.com" class="btn btn-outline">Contact Me</a>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-label">Hello everyone,</span>
+                <h1>I am <span>Rocky Arañez</span></h1>
+                <div class="hero-role"> A BSIT student passionate about technology and creativity.</div>
+                <p class="hero-desc">I combine technical expertise with a disciplined approach to create secure, efficient, and visually compelling digital solutions.</p>
+                
+                <div style="display: flex; gap: 20px; justify-content: flex-start;">
+                    <a href="#projects" class="btn btn-primary"><i class="fas fa-eye"></i> Portfolio</a>
+                    <a href="#skills" class="btn btn-outline">Skills</a>
+                </div>
+            </div>
+            
+            <div class="hero-img-box">
+                <div class="hero-glow"></div>
+                <div class="hero-frame"></div>
+                <img src="profile1.png" alt="Rocky Arañez" class="hero-img">
+            </div>
+        </section>
+
+        <div class="stats-wrapper">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fas fa-graduation-cap"></i></span>
+                    <div class="stat-val">BSIT</div>
+                    <div class="stat-label">Current Course</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fas fa-university"></i></span>
+                    <div class="stat-val">3rd Year</div>
+                    <div class="stat-label">Section 3R11</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <div class="stat-val">Cugman, CDOC</div>
+                    <div class="stat-label">Location</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fas fa-birthday-cake"></i></span>
+                    <div class="stat-val">21 Years Old</div>
+                    <div class="stat-label">Age</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-container">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="contact-info">
+                        <h5>Phone Number</h5>
+                        <p>0953 321 4122</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-info">
+                        <h5>Email</h5>
+                        <p><a href="mailto:rockyaranez@gmail.com">rockyaranez@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-behance"></i></div>
+                    <div class="contact-info">
+                        <h5>Behance</h5>
+                        <p><a href="#">Rocky Arañez</a></p>
+                    </div>
+                </div>
+            
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-github"></i></div>
+                    <div class="contact-info">
+                        <h5>Github</h5>
+                        <p><a href="#">Rockzxz</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>My Journey</h2>
+            <div class="highlight-bar"></div>
+        </div>
+
+        <div class="edu-section">
+            <div class="edu-grid">
+                <div class="edu-column">
+                    <h3><i class="fas fa-user-graduate"></i> Education</h3>
+                    
+                    <div class="timeline-card">
+                        <span class="timeline-date">Current</span>
+                        <h4 class="timeline-title">University of Science and Technology of Southern Philippines</h4>
+                        <span class="timeline-place">College</span>
+                    </div>
+                    
+                    <div class="timeline-card">
+                        <span class="timeline-date">Previous</span>
+                        <h4 class="timeline-title">Liceo De Cagayan University</h4>
+                        <span class="timeline-place">Senior High School</span>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-date">Previous</span>
+                        <h4 class="timeline-title">Cugman National High School</h4>
+                        <span class="timeline-place">Junior High School</span>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-date">Previous</span>
+                        <h4 class="timeline-title">Macabalan Elementary School</h4>
+                        <span class="timeline-place">Primary School</span>
+                    </div>
+                </div>
+
+                <div class="edu-column">
+                    <h3><i class="fas fa-code"></i> Technical Proficiency</h3>
+                    
+                    <div class="skill-group">
+                        <h4>Design</h4>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Adobe Photoshop</span><span>70%</span></div>
+                            <div class="progress-bg"><div class="progress-fill" style="width: 70%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Canva</span><span>70%</span></div>
+                            <div class="progress-bg"><div class="progress-fill" style="width: 70%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Figma</span><span>50%</span></div>
+                            <div class="progress-bg"><div class="progress-fill" style="width: 50%"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-group" style="margin-top: 30px;">
+                        <h4>Development</h4>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Visual Studio Code</span><span>50%</span></div>
+                            <div class="progress-bg"><div class="progress-fill" style="width: 50%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>SQL / Database</span><span>50%</span></div>
+                            <div class="progress-bg"><div class="progress-fill" style="width: 50%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Interests & Passions</h2>
+            <p>What drives my creativity and discipline outside of academics</p>
+            <div class="highlight-bar"></div>
+        </div>
+
+        <div class="hobbies-grid">
+            <div class="hobby-card">
+                <i class="fas fa-dumbbell hobby-icon"></i>
+                <h3 class="hobby-title">Bodybuilding</h3>
+                <p class="hobby-desc">Building discipline and consistency through rigorous physical training.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-gamepad hobby-icon"></i>
+                <h3 class="hobby-title">Interactive Media</h3>
+                <p class="hobby-desc">Analyzing narrative structures and visual fidelity in AAA titles.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-pen-nib hobby-icon"></i>
+                <h3 class="hobby-title">Graphic Design</h3>
+                <p class="hobby-desc">Translating conceptual ideas into structured visual communication.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-layer-group hobby-icon"></i>
+                <h3 class="hobby-title">UI/UX Design</h3>
+                <p class="hobby-desc">Designing logical, user-centric interfaces for complex systems.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-code hobby-icon"></i>
+                <h3 class="hobby-title">Coding</h3>
+                <p class="hobby-desc">Applying logical reasoning to solve technical problems.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-film hobby-icon"></i>
+                <h3 class="hobby-title">Cinematography</h3>
+                <p class="hobby-desc">Studying visual storytelling, perspective, and composition.</p>
+            </div>
+        </div>
+
+        <div class="section-header" id="projects">
+            <h2>Latest Projects</h2>
+            <div class="highlight-bar"></div>
+        </div>
+
+        <div class="project-list">
+            <div class="project-card">
+                <div class="project-info">
+                    <img src="1.png" alt="Project 1" class="project-thumb">
+                    <div class="project-text">
+                        <span class="project-cat">Esports Graphic Design</span>
+                        <h4>MLBB Tournament Design</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <img src="2.png" alt="Project 2" class="project-thumb">
+                    <div class="project-text">
+                        <span class="project-cat">Web Design</span>
+                        <h4>PetShop Landing Page</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <img src="3.png" alt="Project 3" class="project-thumb">
+                    <div class="project-text">
+                        <span class="project-cat">Cover art</span>
+                        <h4>Music Cover Art Design</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <img src="6.png" alt="Project 6" class="project-thumb">
+                    <div class="project-text">
+                        <span class="project-cat">Graphic Design</span>
+                        <h4>Esports Team</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rocky Arañez. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
