@@ -65,7 +65,7 @@ $dev_skills = [
 // --- HOBBIES DATA ---
 $hobbies = [
     ["icon" => "fas fa-dumbbell", "title" => "Bodybuilding", "desc" => "Building discipline and consistency through rigorous physical training."],
-    ["icon" => "fas fa-gamepad", "title" => "Interactive Media", "desc" => "Analyzing narrative structures and visual fidelity in AAA titles."],
+    ["icon" => "fas fa-gamepad", "title" => "Playing Video Games", "desc" => "Having fun playing games on my phone and computer."],
     ["icon" => "fas fa-pen-nib", "title" => "Graphic Design", "desc" => "Translating conceptual ideas into structured visual communication."],
     ["icon" => "fas fa-layer-group", "title" => "UI/UX Design", "desc" => "Designing logical, user-centric interfaces for complex systems."],
     ["icon" => "fas fa-code", "title" => "Coding", "desc" => "Applying logical reasoning to solve technical problems."],
@@ -108,10 +108,9 @@ $projects = [
     
     <style>
         :root {
-            /* COLOR PALETTE */
             --bg-dark: #0f0f11;       
             --bg-card: #1b1b1f;       
-            --primary: #6C5DD3;       /* Electric Purple */
+            --primary: #6C5DD3;      
             --primary-hover: #5a4cb5;
             --accent: #a0f44b;        
             
@@ -207,7 +206,6 @@ $projects = [
             line-height: 1.8;
         }
         
-        /* IMAGE BOX STYLING */
         .hero-img-box { 
             position: relative; 
             flex: 1; 
@@ -246,12 +244,12 @@ $projects = [
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
 
-        /* SECTION TITLES */
+      
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 100px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
         .highlight-bar { width: 60px; height: 4px; background: var(--primary); margin: 20px auto 0; border-radius: 2px; }
 
-        /* STATS GRID & CONTACT GRID (Shared Style) */
+       
         .stats-wrapper, .contact-wrapper { margin-top: 80px; }
         .contact-wrapper { margin-top: 30px; } 
         
@@ -270,7 +268,7 @@ $projects = [
         
         .stat-label { color: var(--text-gray); font-size: 0.9rem; }
 
-        /* CONTACT SECTION (UPDATED TO CENTER ALIGN) */
+       
         .contact-container {
             display: flex;
             justify-content: center; 
@@ -306,7 +304,7 @@ $projects = [
         .contact-info a { color: var(--text-white); text-decoration: none; transition: 0.3s; }
         .contact-info a:hover { color: var(--primary); }
 
-        /* EDUCATION TIMELINE */
+        
         .edu-section { padding: 50px 0; }
         .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         .edu-column h3 { margin-bottom: 30px; font-size: 1.8rem; display: flex; align-items: center; gap: 15px; }
@@ -322,14 +320,14 @@ $projects = [
         .timeline-title { font-size: 1.2rem; margin-bottom: 8px; font-weight: 600; }
         .timeline-place { font-size: 0.95rem; color: var(--text-gray); }
 
-        /* SKILLS */
+   
         .skill-group h4 { color: var(--text-gray); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
         .skill-item { margin-bottom: 25px; }
         .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 1rem; font-weight: 500; }
         .progress-bg { height: 10px; background: #2a2a2e; border-radius: 5px; overflow: hidden; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #8e7ffb); border-radius: 5px; }
 
-        /* HOBBIES */
+  
         .hobbies-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .hobby-card {
             background: var(--bg-card); padding: 40px 30px; border-radius: 24px;
@@ -340,7 +338,7 @@ $projects = [
         .hobby-title { font-size: 1.3rem; margin-bottom: 15px; }
         .hobby-desc { color: var(--text-gray); font-size: 0.95rem; font-weight: 300; }
 
-        /* PROJECTS LIST */
+       
         .project-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .project-card {
             display: flex; align-items: center; 
@@ -349,4 +347,5 @@ $projects = [
         }
         .project-card:hover { border-color: var(--primary); background: #222226; transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
         
-        .project-info { display: flex;
+        .project-info { display: flex; 
+    }
