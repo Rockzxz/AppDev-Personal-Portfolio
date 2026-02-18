@@ -9,7 +9,7 @@
     
     <style>
         :root {
-            
+            /* DEFAULT DARK THEME VARIABLES */
             --bg-dark: #0f0f11;       
             --bg-card: #1b1b1f;       
             --primary: #6C5DD3;       
@@ -18,9 +18,19 @@
             
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
+            --border-color: #2a2a2e; /* Added variable for borders */
             
             --radius: 24px;
             --transition: all 0.3s ease;
+        }
+
+        /* LIGHT THEME OVERRIDES */
+        [data-theme="light"] {
+            --bg-dark: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-white: #1a1a1a;
+            --text-gray: #666666;
+            --border-color: #e5e7eb;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,16 +41,20 @@
             font-family: 'Poppins', sans-serif; 
             line-height: 1.6; 
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-        
+        /* HEADER */
         header { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-white); }
         .logo span { color: var(--primary); }
 
-        
+        /* HEADER ACTIONS WRAPPER */
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+
+        /* BUTTONS */
         .btn {
             display: inline-flex; align-items: center; gap: 8px;
             padding: 14px 32px; border-radius: 12px;
@@ -55,13 +69,27 @@
         .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
         
         .btn-outline { 
-            border: 1px solid rgba(255,255,255,0.15); 
-            color: white; 
+            border: 1px solid var(--border-color); /* Updated to use variable */
+            color: var(--text-white); 
             background: transparent; 
         }
-        .btn-outline:hover { border-color: var(--primary); background: rgba(255,255,255,0.05); }
+        .btn-outline:hover { border-color: var(--primary); background: rgba(108, 93, 211, 0.05); color: var(--primary); }
 
-        
+        /* THEME TOGGLE BUTTON */
+        .theme-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-white);
+            width: 45px; height: 45px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        .theme-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* HERO SECTION */
         .hero { 
             padding: 80px 0; 
             display: flex; 
@@ -94,7 +122,7 @@
             font-size: 1.2rem; 
             margin-bottom: 30px; 
             padding-left: 20px; 
-            border-left: 3px solid white; 
+            border-left: 3px solid var(--text-white); /* Updated to use variable */
             display: inline-block;
             line-height: 1.2;
         }
@@ -108,7 +136,7 @@
             line-height: 1.8;
         }
         
-        
+        /* IMAGE BOX STYLING */
         .hero-img-box { 
             position: relative; 
             flex: 1; 
@@ -147,40 +175,40 @@
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
 
-        
+        /* SECTION TITLES */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 100px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
         .highlight-bar { width: 60px; height: 4px; background: var(--primary); margin: 20px auto 0; border-radius: 2px; }
 
-        
+        /* STATS GRID */
         .stats-wrapper { margin-top: 80px; }
         
         .stats-grid { 
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; 
-            background: #151518; padding: 50px; border-radius: 30px;
-            border: 1px solid #2a2a2e;
+            background: var(--bg-card); /* Updated to use variable */
+            padding: 50px; border-radius: 30px;
+            border: 1px solid var(--border-color); /* Updated to use variable */
+            transition: var(--transition);
         }
         .stat-card { text-align: center; }
         .stat-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; background: rgba(108, 93, 211, 0.1); width: 70px; height: 70px; line-height: 70px; border-radius: 50%; display: inline-block; }
         .stat-val { font-size: 1.4rem; font-weight: 700; margin-bottom: 5px; }
         .stat-label { color: var(--text-gray); font-size: 0.9rem; }
 
-        
+        /* CONTACT SECTION */
         .contact-wrapper { margin-top: 30px; }
         
         .contact-container {
-           
             display: flex;
             justify-content: center; 
             align-items: flex-start;
             flex-wrap: wrap; 
             gap: 50px; 
-            
-           
-            background: #151518; 
+            background: var(--bg-card); /* Updated to use variable */
             padding: 50px; 
             border-radius: 30px;
-            border: 1px solid #2a2a2e;
+            border: 1px solid var(--border-color); /* Updated to use variable */
+            transition: var(--transition);
         }
 
         .contact-item { 
@@ -216,8 +244,9 @@
             background: var(--bg-card); padding: 30px; border-radius: 20px;
             margin-bottom: 25px; border-left: 4px solid var(--primary);
             transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Added slight shadow for light mode visibility */
         }
-        .timeline-card:hover { transform: translateX(10px); background: #222226; }
+        .timeline-card:hover { transform: translateX(10px); }
         .timeline-date { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 1px; }
         .timeline-title { font-size: 1.2rem; margin-bottom: 8px; font-weight: 600; }
         .timeline-place { font-size: 0.95rem; color: var(--text-gray); }
@@ -226,7 +255,7 @@
         .skill-group h4 { color: var(--text-gray); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
         .skill-item { margin-bottom: 25px; }
         .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 1rem; font-weight: 500; }
-        .progress-bg { height: 10px; background: #2a2a2e; border-radius: 5px; overflow: hidden; }
+        .progress-bg { height: 10px; background: var(--border-color); border-radius: 5px; overflow: hidden; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #8e7ffb); border-radius: 5px; }
 
         /* HOBBIES */
@@ -234,8 +263,9 @@
         .hobby-card {
             background: var(--bg-card); padding: 40px 30px; border-radius: 24px;
             text-align: center; transition: var(--transition); border: 1px solid transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .hobby-card:hover { border-color: var(--primary); background: #202025; transform: translateY(-10px); }
+        .hobby-card:hover { border-color: var(--primary); transform: translateY(-10px); }
         .hobby-icon { font-size: 3rem; color: var(--primary); margin-bottom: 25px; }
         .hobby-title { font-size: 1.3rem; margin-bottom: 15px; }
         .hobby-desc { color: var(--text-gray); font-size: 0.95rem; font-weight: 300; }
@@ -245,9 +275,11 @@
         .project-card {
             display: flex; align-items: center; 
             background: var(--bg-card); padding: 30px; border-radius: 24px;
-            border: 1px solid #2a2a2e; transition: var(--transition);
+            border: 1px solid var(--border-color); /* Updated to use variable */
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .project-card:hover { border-color: var(--primary); background: #222226; transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .project-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(108, 93, 211, 0.15); }
         
         .project-info { display: flex; align-items: center; gap: 30px; width: 100%; }
         
@@ -257,14 +289,14 @@
         .project-cat { color: var(--accent); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
 
         /* FOOTER */
-        footer { border-top: 1px solid #2a2a2e; padding: 50px 0; margin-top: 100px; text-align: center; color: var(--text-gray); }
+        footer { border-top: 1px solid var(--border-color); padding: 50px 0; margin-top: 100px; text-align: center; color: var(--text-gray); }
 
         /* RESPONSIVE */
         @media (max-width: 992px) {
             .hero { flex-direction: column; text-align: center; padding-top: 40px; }
             .hero-img-box { margin-top: 50px; width: 100%; }
             .hero-frame { width: 100%; max-width: 400px; right: auto; }
-            .hero-role { padding-left: 0; border-left: none; border-bottom: 3px solid white; display: inline-block; padding-bottom: 5px; }
+            .hero-role { padding-left: 0; border-left: none; border-bottom: 3px solid var(--text-white); display: inline-block; padding-bottom: 5px; }
             .hero-content { display: flex; flex-direction: column; align-items: center; }
             .edu-grid { grid-template-columns: 1fr; }
             .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
@@ -290,7 +322,12 @@
     <div class="container">
         <header>
             <div class="logo">ROCKY<span>ARAÑEZ</span></div>
-            <a href="mailto:rockyaranez@gmail.com" class="btn btn-outline">Contact Me</a>
+            <div class="header-actions">
+                <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="mailto:rockyaranez@gmail.com" class="btn btn-outline">Contact Me</a>
+            </div>
         </header>
 
         <section class="hero">
@@ -344,7 +381,7 @@
                     <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                     <div class="contact-info">
                         <h5>Phone Number</h5>
-                        <p>0953 321 0118</p>
+                        <p>0953 281 0118</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -354,27 +391,25 @@
                         <p><a href="mailto:rockyaranez@gmail.com">rockyaranez@gmail.com</a></p>
                     </div>
                 </div>
-
                 <div class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-behance"></i></div>
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <div class="contact-info">
-                        <h5>Behance</h5>
-                        <p><a href="#">Rocky Arañez</a></p>
+                        <h5>Address</h5>
+                        <p>Cugman, CDOC</p>
                     </div>
                 </div>
-            
                 <div class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-github"></i></div>
+                    <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
                     <div class="contact-info">
-                        <h5>Github</h5>
-                        <p><a href="#">Rockzxz</a></p>
+                        <h5>LinkedIn</h5>
+                        <p><a href="#">Rocky Arañez</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section-header">
-            <h2>My Journey</h2>
+        <div class="section-header" id="skills">
+            <h2>My Journey</h2> 
             <div class="highlight-bar"></div>
         </div>
 
@@ -385,30 +420,30 @@
                     
                     <div class="timeline-card">
                         <span class="timeline-date">Current</span>
-                        <h4 class="timeline-title">University of Science and Technology of Southern Philippines</h4>
-                        <span class="timeline-place">College</span>
+                        <h4 class="timeline-title">Bachelor of Science in Information Technology</h4>
+                        <span class="timeline-place">University of Science and Technology of Southern Philippines</span>
                     </div>
                     
                     <div class="timeline-card">
                         <span class="timeline-date">Previous</span>
-                        <h4 class="timeline-title">Liceo De Cagayan University</h4>
-                        <span class="timeline-place">Senior High School</span>
+                        <h4 class="timeline-title">Senior High School</h4>
+                        <span class="timeline-place">Liceo De Cagayan University</span>
                     </div>
 
                     <div class="timeline-card">
                         <span class="timeline-date">Previous</span>
-                        <h4 class="timeline-title">Cugman National High School</h4>
-                        <span class="timeline-place">Junior High School</span>
+                        <h4 class="timeline-title">Junior High School</h4>
+                        <span class="timeline-place">Cugman National High School</span>
                     </div>
 
                     <div class="timeline-card">
                         <span class="timeline-date">Previous</span>
-                        <h4 class="timeline-title">Macabalan Elementary School</h4>
-                        <span class="timeline-place">Primary School</span>
+                        <h4 class="timeline-title">Elementary</h4>
+                        <span class="timeline-place">Macabalan Elementary School</span>
                     </div>
                 </div>
 
-                <div class="edu-column" id = "skills">
+                <div class="edu-column">
                     <h3><i class="fas fa-code"></i> Technical Proficiency</h3>
                     
                     <div class="skill-group">
@@ -535,6 +570,35 @@
             <p>&copy; 2026 Rocky Arañez. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const htmlElement = document.documentElement;
+
+        // Check local storage for theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'light') {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                htmlElement.removeAttribute('data-theme');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 
 </body>
 </html>
